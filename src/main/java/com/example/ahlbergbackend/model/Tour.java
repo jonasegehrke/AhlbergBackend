@@ -22,6 +22,7 @@ public class Tour {
     private String date;
     private String time;
     private String city;
+    private String ConcertPlace;
     private int ticketPrice;
 
 }
