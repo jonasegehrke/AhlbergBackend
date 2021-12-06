@@ -24,7 +24,7 @@ public class IndexRESTController {
     }
 
     @PutMapping(value ="/index", consumes = "application/json")
-    public ResponseEntity<IndexModel> updateShift(@RequestBody IndexModel indexModel){
+    public ResponseEntity<IndexModel> updateIndex(@RequestBody IndexModel indexModel){
         Optional<IndexModel> data = indexRepository.findById(indexModel.getIndexModelId());
         if(data.isPresent()){
             IndexModel updatedIndex = data.get();
