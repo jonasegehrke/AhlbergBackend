@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -28,7 +29,7 @@ public class TourRESTController {
         tourRepository.save(tour);
         return new ResponseEntity<>(tour, HttpStatus.CREATED);
     }
-    @DeleteMapping(value = "/tours")
+    @DeleteMapping(value = "/tours/{id}")
     public ResponseEntity<Tour> deleteTour(@PathVariable int id){
         tourRepository.deleteById(id);
         return new ResponseEntity<>(HttpStatus.OK);
