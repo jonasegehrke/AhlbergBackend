@@ -26,7 +26,11 @@ public class TourRESTController {
     @PostMapping(value = "/tours", consumes = "application/json")
     public ResponseEntity<Tour> addTour(@RequestBody Tour tour){
         tourRepository.save(tour);
-        return new ResponseEntity<Tour>(tour, HttpStatus.CREATED);
+        return new ResponseEntity<>(tour, HttpStatus.CREATED);
     }
-
+    @DeleteMapping(value = "/tours")
+    public ResponseEntity<Tour> deleteTour(@PathVariable int id){
+        tourRepository.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
