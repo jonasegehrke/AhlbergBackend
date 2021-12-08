@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Getter
@@ -17,7 +18,7 @@ import javax.persistence.Id;
 public class Tour {
 
     @Id
-    @Generated
+    @GeneratedValue
     private int tourId;
     private String date;
     private String time;
