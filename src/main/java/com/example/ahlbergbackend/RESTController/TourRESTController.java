@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin
@@ -26,7 +27,11 @@ public class TourRESTController {
     @PostMapping(value = "/tours", consumes = "application/json")
     public ResponseEntity<Tour> addTour(@RequestBody Tour tour){
         tourRepository.save(tour);
-        return new ResponseEntity<Tour>(tour, HttpStatus.CREATED);
+        return new ResponseEntity<>(tour, HttpStatus.CREATED);
     }
-
+    @DeleteMapping(value = "/tours/{id}")
+    public ResponseEntity<Tour> deleteTour(@PathVariable int id){
+        tourRepository.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }
